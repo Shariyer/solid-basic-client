@@ -23,7 +23,7 @@ const Header = () => {
         collapseOnSelect
         expand="lg"
         bg="dark"
-        className="bg-opacity-75"
+        className="bg-opacity-100"
         variant="dark"
       >
         <Container>
@@ -33,7 +33,7 @@ const Header = () => {
           </div>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="me-auto d-flex align-items-center">
               <NavLink className="text-decoration-none text-white mx-3" to="/">
                 Home
               </NavLink>
@@ -58,8 +58,10 @@ const Header = () => {
               </NavLink>
               {user?.uid && (
                 <>
-                  <Nav.Link className="text-white px-5">Welcome!!</Nav.Link>
-                  <p className="text-white mt-2">{user?.displayName}</p>
+                  <Nav.Link className="text-white  px-5">Welcome!!</Nav.Link>
+                  <Nav.Link className="text-white">
+                    {user?.displayName}
+                  </Nav.Link>
                 </>
               )}
             </Nav>
