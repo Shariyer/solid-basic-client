@@ -67,7 +67,7 @@ const Header = () => {
               {user?.uid ? (
                 <div className="d-flex align-items-center">
                   <NavLink
-                    className="text-decoration-none text-white"
+                    className="text-decoration-none text-white px-4"
                     onClick={handleLogOut}
                     to="/login"
                   >
@@ -81,8 +81,18 @@ const Header = () => {
                 </div>
               ) : (
                 <>
-                  <Nav.Link href="/login">LogIn</Nav.Link>
-                  <Nav.Link href="/register">Register</Nav.Link>
+                  <NavLink
+                    className="text-decoration-none text-white px-5"
+                    to="/login"
+                  >
+                    LogIn
+                  </NavLink>
+                  <NavLink
+                    className="text-decoration-none text-white"
+                    to="/register"
+                  >
+                    Register
+                  </NavLink>
                 </>
               )}
             </Nav>

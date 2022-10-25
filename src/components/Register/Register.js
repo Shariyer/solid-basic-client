@@ -7,8 +7,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { authContext } from "../../AuthContext/AuthContext";
 
 const Register = () => {
-  const { CreateUser } = useContext(authContext);
+  const { CreateUser, UpdateUserProfile } = useContext(authContext);
   const navigate = useNavigate();
+  // handleFormRegister
   const handleFormRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -16,16 +17,28 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(fullName, photoURL, email, password);
+    // console.log(fullName, photoURL, email, password);
     CreateUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log("registered with E&P" + user);
         form.reset();
+        handleUpdateUserProfile(fullName, photoURL);
         navigate("/");
       })
       .catch((e) => {
         console.error(e.message);
+      });
+  };
+  const handleUpdateUserProfile = (fullName, photoURL) => {
+    const profile = {
+      displayName: fullName,
+      photoURL: photoURL,
+    };
+    UpdateUserProfile(profile)
+      .then(() => {})
+      .catch((e) => {
+        console.error(e);
       });
   };
 
