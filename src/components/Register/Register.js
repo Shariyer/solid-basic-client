@@ -1,22 +1,40 @@
 /** @format */
 
-import React from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { authContext } from "../../AuthContext/AuthContext";
 
 const Register = () => {
-  const handleForm = (event) => {
+  const { CreateUser } = useContext(authContext);
+  const navigate = useNavigate();
+  const handleFormRegister = (event) => {
+    event.preventDefault();
     const form = event.target;
-    const fullname = form.fullName.value;
-    const photoURL = form.PhotoURL.value;
+    const fullName = form.fullName.value;
+    const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
+    console.log(fullName, photoURL, email, password);
+    CreateUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log("registered with E&P" + user);
+        form.reset();
+        navigate("/");
+      })
+      .catch((e) => {
+        console.error(e.message);
+      });
   };
 
   return (
-    <div>
-      <Form className="w-50 mx-auto bg-dark bg-opacity-25 p-5 shadow rounded border">
+    <div className="container">
+      <Form
+        onSubmit={handleFormRegister}
+        className="w-75 mx-auto bg-dark bg-opacity-25 p-5 shadow rounded border"
+      >
         <h2 className="text-center">Registration</h2>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
@@ -32,6 +50,7 @@ const Register = () => {
             type="email"
             name="email"
             placeholder="Enter Your email address"
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -49,6 +68,7 @@ const Register = () => {
             type="password"
             name="password"
             placeholder="Enter your Password"
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
