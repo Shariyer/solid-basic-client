@@ -14,6 +14,7 @@ import Categories from "./components/Shared/Categories/Categories";
 import CourseDetails from "./components/Details/Details";
 import CourseItems from "./components/Shared/CourseItems/CourseItems";
 import Details from "./components/Details/Details";
+import FAQ from "./components/FAQ/FAQ";
 
 function App() {
   const router = createBrowserRouter([
@@ -51,6 +52,11 @@ function App() {
         {
           path: "/courses/singleCourse/:id",
           element: <Details />,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: "/FAQ",
+          element: <FAQ />,
           errorElement: <ErrorPage />,
         },
       ],
