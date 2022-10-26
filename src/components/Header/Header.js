@@ -52,7 +52,7 @@ const Header = () => {
 
               <NavLink
                 className="text-decoration-none text-white mx-3"
-                to="/register"
+                to="/blog"
               >
                 Blog
               </NavLink>

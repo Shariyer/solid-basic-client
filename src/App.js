@@ -15,6 +15,7 @@ import CourseDetails from "./components/Details/Details";
 import CourseItems from "./components/Shared/CourseItems/CourseItems";
 import Details from "./components/Details/Details";
 import FAQ from "./components/FAQ/FAQ";
+import Blog from "./components/Blog/Blog";
 
 function App() {
   const router = createBrowserRouter([
@@ -57,6 +58,11 @@ function App() {
         {
           path: "/FAQ",
           element: <FAQ />,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: "/blog",
+          element: <Blog />,
           errorElement: <ErrorPage />,
         },
       ],

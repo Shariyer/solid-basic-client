@@ -5,8 +5,8 @@ import Accordion from "react-bootstrap/Accordion";
 
 const FAQ = () => {
   return (
-    <div className=" w-75 mx-auto  rounded ">
-      <Accordion className="mt-5">
+    <div className=" w-75 mx-auto  rounded">
+      <Accordion className="mt-5 ">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             <h3 className="fw-bolder text-primary">Why Us???</h3>
@@ -15,6 +15,18 @@ const FAQ = () => {
             We are giving best quality courses as free. With our quality Course
             Instructors all the courses are well organized and florist.You will
             get the best course outline for sure.
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>
+            <h3 className="fw-bolder text-primary">How to get Started???</h3>
+          </Accordion.Header>
+          <Accordion.Body>
+            Whether you want to create an app or customize web pages, it's
+            prudent to to start by learning the basics of one primary
+            programming language. And we giving a free opportunity to grab the
+            best basic course you could ever find with superbly structured for
+            any beginner friendly course. Grab our Course and fly.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
