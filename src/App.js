@@ -52,6 +52,8 @@ function App() {
         },
         {
           path: "/courses/singleCourse/:id",
+          loader: ({ params }) =>
+            fetch(`http://localhost:5000/courses/singleCourse/${params.id}`),
           element: <Details />,
           errorElement: <ErrorPage />,
         },

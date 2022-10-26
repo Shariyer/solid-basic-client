@@ -5,7 +5,7 @@ import Accordion from "react-bootstrap/Accordion";
 
 const FAQ = () => {
   return (
-    <div className=" w-75 mx-auto  rounded">
+    <div className=" w-75 mx-auto  rounded ">
       <Accordion className="mt-5 ">
         <Accordion.Item eventKey="0">
           <Accordion.Header>

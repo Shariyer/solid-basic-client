@@ -5,8 +5,10 @@ import { Image } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { FaUserCircle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { authContext } from "../../AuthContext/AuthContext";
+import Categories from "../Shared/Categories/Categories";
 
 const Header = () => {
   const { user, LogOut } = useContext(authContext);
@@ -75,11 +77,15 @@ const Header = () => {
                   >
                     Log Out
                   </NavLink>
-                  <Image
-                    roundedCircle
-                    style={{ height: 30 }}
-                    src={user?.photoURL}
-                  ></Image>
+                  {user?.photoURL ? (
+                    <Image
+                      roundedCircle
+                      style={{ height: 30 }}
+                      src={user?.photoURL}
+                    ></Image>
+                  ) : (
+                    <FaUserCircle className="text-white fs-1" roundedCircle />
+                  )}
                 </div>
               ) : (
                 <>
@@ -98,7 +104,9 @@ const Header = () => {
                 </>
               )}
             </Nav>
-            <div className="d-lg-none">{/* <Categores /> */}</div>
+            <div className="d-lg-none">
+              <Categories />
+            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>

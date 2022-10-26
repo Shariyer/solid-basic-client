@@ -73,7 +73,6 @@ const Register = () => {
             type="text"
             name="photoURL"
             placeholder="Enter Your PhotoURL email"
-            required
           />
         </Form.Group>
 
