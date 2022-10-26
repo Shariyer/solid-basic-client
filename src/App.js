@@ -9,6 +9,11 @@ import Home from "./components/Home/Home";
 import LogIn from "./components/LogIn/LogIn";
 import Register from "./components/Register/Register";
 import Header from "./components/Header/Header";
+import Courses from "./components/Shared/Courses/Courses";
+import Categories from "./components/Shared/Categories/Categories";
+import CourseDetails from "./components/Details/Details";
+import CourseItems from "./components/Shared/CourseItems/CourseItems";
+import Details from "./components/Details/Details";
 
 function App() {
   const router = createBrowserRouter([
@@ -36,6 +41,16 @@ function App() {
         {
           path: "/register",
           element: <Register></Register>,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: "/courses",
+          element: <Courses></Courses>,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: "/courses/singleCourse/:id",
+          element: <Details />,
           errorElement: <ErrorPage />,
         },
       ],
