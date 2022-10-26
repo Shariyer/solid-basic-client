@@ -16,8 +16,10 @@ const Categories = () => {
       });
   }, []);
   return (
-    <div className="my-2 ">
-      <h4>Programme Categories</h4>
+    <div className="my-2">
+      <h4 className="text-sm-start text-center fs-3 fw-bold">
+        Programme Categories
+      </h4>
       {categories.map((category) => (
         <NavLink
           className="d-block m-4 fs-3"
