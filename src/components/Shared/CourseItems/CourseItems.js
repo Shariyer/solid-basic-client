@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { NavLink } from "react-router-dom";
 import { FaFileDownload } from "react-icons/fa";
-
+import ReactDOM from "react-dom";
 import Pdf from "react-to-pdf";
 const ref = React.createRef();
 
@@ -28,7 +28,7 @@ const CourseItems = () => {
         All Programmes (Download if needed)
       </h2>
       {courses.map((c) => (
-        <div className="mx-5">
+        <div className="w-75">
           <Row xs={1} md={2} lg={1} className="shadow my-5 rounded mb-3">
             {Array.from({ length: 1 }).map((_, idx) => (
               <Col key={c.id}>
