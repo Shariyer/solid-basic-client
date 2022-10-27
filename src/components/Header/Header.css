@@ -1,0 +1,10 @@
+
+.tooltipName p{
+ display: none;
+
+}
+
+.tooltipName:hover>p{
+ display: flex;
+
+}

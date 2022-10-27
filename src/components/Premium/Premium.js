@@ -15,9 +15,12 @@ const Premium = () => {
           {Array.from({ length: 1 }).map((_, idx) => (
             <Col key={allCourses.id}>
               <Card.Header className="bg-dark  rounded">
-                <h3 className="text-center fw-bolder text-success p-4">
-                  Premium Services
-                </h3>
+                <div>
+                  <h2 className="text-center text-white">{allCourses.name}</h2>
+                  <h3 className="text-center fw-bolder text-success p-4">
+                    Premium Services
+                  </h3>
+                </div>
               </Card.Header>
               <Card className="my-3 ">
                 <Card.Body className="border rounded p-4">

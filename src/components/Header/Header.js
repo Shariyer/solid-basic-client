@@ -1,17 +1,22 @@
 /** @format */
-
+import "./Header.css";
 import React, { useContext } from "react";
-import { Image } from "react-bootstrap";
+import { useState } from "react";
+import { Image, ToggleButton } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { FaUserCircle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { authContext } from "../../AuthContext/AuthContext";
-import Categories from "../Shared/Categories/Categories";
 
 const Header = () => {
   const { user, LogOut } = useContext(authContext);
+  // button toggle for dark and light
+  const [buttonState, setButtonState] = useState(true);
+  const handleButtonToggle = () => {
+    setButtonState(!buttonState);
+  };
   const handleLogOut = () => {
     LogOut()
       .then(() => {
@@ -57,14 +62,29 @@ const Header = () => {
               >
                 FAQ
               </NavLink>
+              {buttonState ? (
+                <ToggleButton
+                  id="tbg-btn-1"
+                  value={1}
+                  className="btn btn-light fw-bolder lightTheme"
+                  onClick={handleButtonToggle}
+                >
+                  {" "}
+                  Light Theme
+                </ToggleButton>
+              ) : (
+                <ToggleButton
+                  id="tbg-btn-1"
+                  value={1}
+                  className="btn btn-dark fw-bolder darkTheme"
+                  onClick={handleButtonToggle}
+                >
+                  Dark Theme
+                </ToggleButton>
+              )}
 
               {user?.uid && (
-                <>
-                  <Nav.Link className="text-white  px-5">Welcome!!</Nav.Link>
-                  <Nav.Link className="text-white">
-                    {user?.displayName}
-                  </Nav.Link>
-                </>
+                <Nav.Link className="text-white  px-5">Welcome!!</Nav.Link>
               )}
             </Nav>
             <Nav>
@@ -78,11 +98,14 @@ const Header = () => {
                     Log Out
                   </NavLink>
                   {user?.photoURL ? (
-                    <Image
-                      roundedCircle
-                      style={{ height: 30 }}
-                      src={user?.photoURL}
-                    ></Image>
+                    <div className="tooltipName">
+                      <p className="text-white">{user?.displayName}</p>
+                      <Image
+                        roundedCircle
+                        style={{ height: 30 }}
+                        src={user?.photoURL}
+                      ></Image>
+                    </div>
                   ) : (
                     <FaUserCircle className="text-white fs-1" roundedCircle />
                   )}

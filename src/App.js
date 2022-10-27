@@ -10,9 +10,7 @@ import LogIn from "./components/LogIn/LogIn";
 import Register from "./components/Register/Register";
 import Header from "./components/Header/Header";
 import Courses from "./components/Shared/Courses/Courses";
-import Categories from "./components/Shared/Categories/Categories";
-import CourseDetails from "./components/Details/Details";
-import CourseItems from "./components/Shared/CourseItems/CourseItems";
+
 import Details from "./components/Details/Details";
 import FAQ from "./components/FAQ/FAQ";
 import Blog from "./components/Blog/Blog";

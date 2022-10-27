@@ -11,8 +11,7 @@ import { useState } from "react";
 
 const LogIn = () => {
   const [error, setError] = useState("");
-  const { SignInEP, SignInWithG, SignInWithGithub, loading } =
-    useContext(authContext);
+  const { SignInEP, SignInWithG, SignInWithGithub } = useContext(authContext);
   const navigate = useNavigate();
   // getting location
   const location = useLocation();

@@ -13,9 +13,11 @@ const Details = () => {
           {Array.from({ length: 1 }).map((_, idx) => (
             <Col key={course.id}>
               <Card className="my-3 ">
+                <Card.Header>
+                  <Card.Title className="fw-bolder">{course.name}</Card.Title>
+                </Card.Header>
                 <Card.Img variant="top" src={course.Img} />
                 <Card.Body>
-                  <Card.Title className="fw-bolder">{course.name}</Card.Title>
                   <Card.Text>{course.description}</Card.Text>
                 </Card.Body>
                 <Card.Footer className="bg-dark">
