@@ -18,6 +18,7 @@ import FAQ from "./components/FAQ/FAQ";
 import Blog from "./components/Blog/Blog";
 import Premium from "./components/Premium/Premium";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Terms from "./components/Terms/Terms";
 
 function App() {
   const router = createBrowserRouter([
@@ -67,6 +68,11 @@ function App() {
         {
           path: "/blog",
           element: <Blog />,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: "/terms",
+          element: <Terms />,
           errorElement: <ErrorPage />,
         },
         {

@@ -11,7 +11,8 @@ import { useState } from "react";
 
 const LogIn = () => {
   const [error, setError] = useState("");
-  const { SignInEP, SignInWithG, SignInWithGithub } = useContext(authContext);
+  const { SignInEP, SignInWithG, SignInWithGithub, loading } =
+    useContext(authContext);
   const navigate = useNavigate();
   // getting location
   const location = useLocation();
@@ -29,9 +30,11 @@ const LogIn = () => {
         const user = result.user;
         navigate(from, { replace: true });
         form.reset();
+        setError("");
         console.log("Logged in user", user);
       })
       .catch((error) => {
+        setError(error.message);
         console.error(error.message);
       });
   };
@@ -40,21 +43,29 @@ const LogIn = () => {
     SignInWithG()
       .then((result) => {
         const user = result.user;
-
+        setError("");
         navigate(from, { replace: true });
+
         console.log("log in with google successfully", user);
       })
-      .catch((error) => console.error(error.message));
+      .catch((error) => {
+        setError(error.message);
+        console.error(error.message);
+      });
   };
   // github-login
   const handleSignInGitHub = () => {
     SignInWithGithub()
       .then((result) => {
         const user = result.user;
+        setError("");
         navigate(from, { replace: true });
         console.log("log in with github successfully", user);
       })
-      .catch((error) => console.error(error.message));
+      .catch((error) => {
+        setError(error.message);
+        console.error(error.message);
+      });
   };
 
   return (
@@ -110,6 +121,7 @@ const LogIn = () => {
               <FaGithub className=" fs-1" /> GitHub
             </Button>
           </span>
+          <p>{error}</p>
         </div>
       </Form>
     </div>

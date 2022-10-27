@@ -1,14 +1,25 @@
 /** @format */
 
 import React, { useContext } from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../../AuthContext/AuthContext";
 
 const Register = () => {
   const { CreateUser, UpdateUserProfile } = useContext(authContext);
+  // const [error, setError] = useState('');
+  const [termsAccept, setTermsAccept] = useState(false);
+  // navigate hook
   const navigate = useNavigate();
+  // location hook
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  // handleCheckbox
+  const handleCheckbox = (event) => {
+    setTermsAccept(event.target.checked);
+  };
   // handleFormRegister
   const handleFormRegister = (event) => {
     event.preventDefault();
@@ -24,7 +35,7 @@ const Register = () => {
         console.log("registered with E&P" + user);
         form.reset();
         handleUpdateUserProfile(fullName, photoURL);
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((e) => {
         console.error(e.message);
@@ -86,10 +97,26 @@ const Register = () => {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Terms & Condition" />
+          <Form.Check
+            type="checkbox"
+            onClick={handleCheckbox}
+            label={
+              <>
+                Accept{" "}
+                <NavLink className="fw-bold" to="/register">
+                  Terms & Conditions
+                </NavLink>
+              </>
+            }
+          />
         </Form.Group>
         <span className=" d-flex justify-content-center">
-          <Button className="px-5" variant="outline-dark" type="submit">
+          <Button
+            className="px-5"
+            variant="outline-dark"
+            type="submit"
+            disabled={!termsAccept}
+          >
             Register
           </Button>
         </span>

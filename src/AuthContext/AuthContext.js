@@ -29,30 +29,37 @@ const AuthContext = ({ children }) => {
 
   //    sign Up with email and password
   const CreateUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // sign in with email and password
   const SignInEP = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
   //Email sign out
   const SignOutEP = () => {
+    setLoading(true);
     return signOut(auth);
   };
   // sign in with google
   const SignInWithG = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
   // sign in with github
   const SignInWithGithub = () => {
+    setLoading(true);
     return signInWithPopup(auth, githubProvider);
   };
   // provider sign out
   const LogOut = () => {
+    setLoading(true);
     return signOut(auth);
   };
   const UpdateUserProfile = (profile) => {
+    setLoading(true);
     updateProfile(auth.currentUser, profile);
   };
 
