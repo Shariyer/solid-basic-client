@@ -4,13 +4,19 @@ import React from "react";
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../../AuthContext/AuthContext";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { useState } from "react";
 
 const LogIn = () => {
+  const [error, setError] = useState("");
   const { SignInEP, SignInWithG, SignInWithGithub } = useContext(authContext);
   const navigate = useNavigate();
+  // getting location
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  //Email password login
   const handleForm = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -21,7 +27,7 @@ const LogIn = () => {
     SignInEP(email, password)
       .then((result) => {
         const user = result.user;
-        navigate("/");
+        navigate(from, { replace: true });
         form.reset();
         console.log("Logged in user", user);
       })
@@ -29,22 +35,23 @@ const LogIn = () => {
         console.error(error.message);
       });
   };
-
+  // google Login
   const handleSignInGoogle = () => {
     SignInWithG()
       .then((result) => {
         const user = result.user;
 
-        navigate("/");
+        navigate(from, { replace: true });
         console.log("log in with google successfully", user);
       })
       .catch((error) => console.error(error.message));
   };
+  // github-login
   const handleSignInGitHub = () => {
     SignInWithGithub()
       .then((result) => {
         const user = result.user;
-        navigate("/");
+        navigate(from, { replace: true });
         console.log("log in with github successfully", user);
       })
       .catch((error) => console.error(error.message));

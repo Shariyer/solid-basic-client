@@ -47,17 +47,17 @@ const Header = () => {
               </NavLink>
               <NavLink
                 className="text-decoration-none text-white mx-3"
+                to="/blog"
+              >
+                Blog
+              </NavLink>
+              <NavLink
+                className="text-decoration-none text-white mx-3"
                 to="/faq"
               >
                 FAQ
               </NavLink>
 
-              <NavLink
-                className="text-decoration-none text-white mx-3"
-                to="/blog"
-              >
-                Blog
-              </NavLink>
               {user?.uid && (
                 <>
                   <Nav.Link className="text-white  px-5">Welcome!!</Nav.Link>

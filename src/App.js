@@ -17,6 +17,7 @@ import Details from "./components/Details/Details";
 import FAQ from "./components/FAQ/FAQ";
 import Blog from "./components/Blog/Blog";
 import Premium from "./components/Premium/Premium";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
   const router = createBrowserRouter([
@@ -72,7 +73,11 @@ function App() {
           path: "/courses/premium/:id",
           loader: ({ params }) =>
             fetch(`http://localhost:5000/courses/premium/${params.id}`),
-          element: <Premium />,
+          element: (
+            <PrivateRoute>
+              <Premium />
+            </PrivateRoute>
+          ),
           errorElement: <ErrorPage />,
         },
       ],
