@@ -88,7 +88,7 @@ const Header = () => {
                   )}
                 </div>
               ) : (
-                <>
+                <div className="">
                   <NavLink
                     className="text-decoration-none text-white px-5"
                     to="/login"
@@ -101,12 +101,12 @@ const Header = () => {
                   >
                     Register
                   </NavLink>
-                </>
+                </div>
               )}
             </Nav>
-            <div className="d-lg-none">
+            {/* <div className="d-lg-none">
               <Categories />
-            </div>
+            </div> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>

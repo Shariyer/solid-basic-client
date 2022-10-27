@@ -67,6 +67,13 @@ function App() {
           element: <Blog />,
           errorElement: <ErrorPage />,
         },
+        {
+          path: "/courses/premium/:id",
+          loader: ({ params }) =>
+            fetch(`http://localhost:5000/courses/premium/${params.id}`),
+          element: <Blog />,
+          errorElement: <ErrorPage />,
+        },
       ],
     },
   ]);

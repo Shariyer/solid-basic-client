@@ -7,7 +7,7 @@ import { useLoaderData } from "react-router-dom";
 const Details = () => {
   const course = useLoaderData();
   return (
-    <div className="w-50 mx-auto">
+    <div className="w-lg-50 mx-auto">
       <Container className="w-75 ">
         <Row xs={1} md={2} lg={1} className="shadow my-5 rounded mb-3">
           {Array.from({ length: 1 }).map((_, idx) => (
