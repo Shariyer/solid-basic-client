@@ -16,7 +16,6 @@ const CourseItems = () => {
       .then((res) => res.json())
       .then((data) => {
         SetCourses(data);
-        console.log(data);
       })
       .catch((error) => console.log(error));
   }, []);

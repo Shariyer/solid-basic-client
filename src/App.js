@@ -16,6 +16,7 @@ import CourseItems from "./components/Shared/CourseItems/CourseItems";
 import Details from "./components/Details/Details";
 import FAQ from "./components/FAQ/FAQ";
 import Blog from "./components/Blog/Blog";
+import Premium from "./components/Premium/Premium";
 
 function App() {
   const router = createBrowserRouter([
@@ -71,7 +72,7 @@ function App() {
           path: "/courses/premium/:id",
           loader: ({ params }) =>
             fetch(`http://localhost:5000/courses/premium/${params.id}`),
-          element: <Blog />,
+          element: <Premium />,
           errorElement: <ErrorPage />,
         },
       ],
