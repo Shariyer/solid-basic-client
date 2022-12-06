@@ -1,25 +1,14 @@
 
-### Project name : Used Products Resale Website application
- 
-### Projects Live Site Link: 
-Client side-Hosting-Link:
+#Project Name:Solid Basic 
 
-### Project's Server Side Link:
-server-site-Hosting-link:
-
-### Admin Information
-adminEmail: s.m.shariyer04@gmail.com
-adminPassword:123456
-
-### Projects special features:
-1.Firebase Authentication System
-2.Login with Google.
-3.Email and Password based Login
-4. Jwt token used to secure client site
-5. react query used for fetching inside custom hooks.
-6. 3 types of user can interact(admin,buyer,seller)
-7.redirect to current page after login
-8.admin can see  allbuyers and allsellers , delete them as well as verify sellers 
-9.buyer and see booked product
-10.seller can advertise product and cancel advertisement, add product and also see their all products
-11. buyer can report any product and admin can take action based on report
+5-key features are:
+1.This project is fully responsive in design (mobile and larg devices)
+2.Used React Router to create dynamic route
+3.You can downlaod pdf 
+4.Private/Protected  route is used 
+5.rediral to current page after login from private route
+6. environment varialble is used to hide firebase config
+7.sign in with google
+8.sign in with github.
+9.Email and password login.
+10. You can't register without accepting terms and conditions.
